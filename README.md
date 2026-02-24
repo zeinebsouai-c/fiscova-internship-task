@@ -13,7 +13,6 @@ Built with **FastAPI, SQLAlchemy, and SQLite**.
 - [Setup & Installation](#setup--installation)
   - [Local Development](#local-development)
   - [Running with Docker](#running-with-docker)
-- [API Documentation](#api-documentation)
 - [Testing](#testing)
 - [Assumptions & Design Choices](#assumptions--design-choices)
 - [Future Improvements](#future-improvements)
@@ -115,15 +114,6 @@ The `calls.db` file is mounted via a Docker volume so data persists between cont
 
 ---
 
-# API Documentation
-
-Interactive Swagger documentation is available at:
-
-```
-/docs
-```
-
----
 
 ## Endpoints
 
