@@ -185,7 +185,7 @@ pytest tests/ -v
 
 ### Project Structure & Technology
 - SQLite: Lightweight, file‑based, no server setup; trades concurrency and advanced features for simplicity.
-- Docker: Containerisation with host‑mounted calls.db ensures data persistence but can cause path quirks on Windows.
+- Docker: Containerisation with host‑mounted calls.db ensures data persistence.
 - Testing: Focused on critical extraction functions and API endpoints; not exhaustive but provides good coverage for a demo.
 - Code organisation: Modular separation (models, schemas, services, API).
 
