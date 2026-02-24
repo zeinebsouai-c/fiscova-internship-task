@@ -199,10 +199,10 @@ pytest tests/ -v
 # Trade-offs & Design Decisions
 
 ### Extraction Logic
-- Rule‑based instead of ML: Chosen for speed and simplicity; perfect for the task’s scope but less robust to varied phrasing.
-- Intent classification: Simple keyword matching works for examples but may overlap (e.g., “issue” in complaint) or miss synonyms.
-- Client number: Regex covers common patterns but may miss numbers without keywords or with fewer digits.
-- Requested action: Returns the first sentence containing request phrases; ignores multi‑sentence requests or unusual punctuation.
+- Rule‑based instead of ML: Chosen for speed and simplicity, more suitable for the task’s scope but less robust to varied phrasing.
+- Intent classification: Simple keyword matching works for examples but may overlap or miss synonyms.
+- Client number: Regex covers common patterns but may miss numbers without keywords or with fewer than 4 digits.
+- Requested action: Returns the first sentence containing request phrases, ignores multi‑sentence requests or unusual punctuation.
 - Callback time parsing: Ordered rules with default times (9 AM, 2 PM, 5 PM) cover common phrases but miss many variants. “Today” defaults to 5 PM (or next morning if past). “At 4 pm” requires AM/PM to avoid ambiguity. All times stored as UTC (caller timezone not considered).
 
 ### Project Structure & Technology
