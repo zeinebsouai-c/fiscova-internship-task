@@ -114,7 +114,7 @@ The `calls.db` file is mounted via a Docker volume so data persists between cont
 
 ---
 
-### Verify the Service
+### SETUP verification
 
 Once the container is running, open another terminal and test the API:
 
