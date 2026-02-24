@@ -34,7 +34,7 @@ Built with **FastAPI, SQLAlchemy, and SQLite**.
 ## Features
 
 - Accept raw call transcripts via `POST /intake/call`
-- Extract structured information from transcripts
+- Extract structured information from transcripts (intent, urgency, client_number, requested_action, callback_requested, preferred_callback_time)
 - Store processed calls in SQLite
 - Retrieve calls with filters via `GET /calls`
 - Duplicate detection via `call_id`
@@ -114,6 +114,28 @@ The `calls.db` file is mounted via a Docker volume so data persists between cont
 
 ---
 
+### Verify the Service
+
+Once the container is running, open another terminal and test the API:
+
+```bash
+curl http://localhost:8000/calls
+```
+ 
+If you see an empty list ([]) or your previously added calls, the service is working.
+
+You can also add a new call via `curl`:
+
+```bash
+curl -X POST http://localhost:8000/intake/call \
+  -H "Content-Type: application/json" \
+  -d '{"call_id":"test-123","transcript":"Hello, this is a test.","call_timestamp":"2026-02-23T12:00:00Z"}'
+```
+(call_id should be unique if testing multiple times.)
+
+Then refresh `curl http://localhost:8000/calls` to see the new entry in the container.
+
+Alternatively, you can use the interactive Swagger UI at http://localhost:8000/docs to add entries.
 
 ## Endpoints
 
